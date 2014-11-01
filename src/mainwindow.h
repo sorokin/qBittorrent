@@ -142,6 +142,7 @@ protected slots:
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
   void handleUpdateCheckFinished(bool update_available, QString new_version, bool invokedByUser);
 #endif
+  void savePersistentData();
 
 protected:
   void closeEvent(QCloseEvent *);
@@ -211,6 +212,7 @@ private:
 #ifdef Q_OS_WIN
   bool has_python;
 #endif
+  QTimer persistentDataSaver;
 
 private slots:
     void on_actionSearch_engine_triggered();
