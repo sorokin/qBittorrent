@@ -223,6 +223,7 @@ QT4_WRAP_CPP (
         ./src/statusbar.h
         ./src/statussortfilterproxymodel.h
         ./src/torrentcontentmodel.h
+        ./src/torrentpersistentdata.h
         ./src/tracker/qtracker.h
         ./src/trackerlogin.h
         ./src/transferlistdelegate.h
