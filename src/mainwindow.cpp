@@ -63,7 +63,6 @@
 #include "preferences.h"
 #include "trackerlist.h"
 #include "peerlistwidget.h"
-#include "torrentpersistentdata.h"
 #include "transferlistfilterswidget.h"
 #include "propertieswidget.h"
 #include "statusbar.h"
@@ -236,11 +235,6 @@ MainWindow::MainWindow(QWidget *parent, const QStringList& torrentCmdLine) : QMa
   preventTimer = new QTimer(this);
   connect(preventTimer, SIGNAL(timeout()), SLOT(checkForActiveTorrents()));
 
-  // Initialization of persistent data
-  TorrentPersistentData::load();
-  connect(&persistentDataSaver, SIGNAL(timeout()), SLOT(savePersistentData()));
-  persistentDataSaver.start(10000);
-
   // Configure BT session according to options
   loadPreferences(false);
 
@@ -363,7 +357,6 @@ void MainWindow::shutdownCleanUp() {
   QBtSession::drop();
   // Save window size, columns size
   writeSettings();
-  TorrentPersistentData::save();
 #ifdef Q_OS_MAC
   // Workaround to avoid bug http://bugreports.qt.nokia.com/browse/QTBUG-7305
   setUnifiedTitleAndToolBarOnMac(false);
@@ -560,7 +553,7 @@ void MainWindow::balloonClicked() {
 
 // called when a torrent has finished
 void MainWindow::finishedTorrent(const QTorrentHandle& h) const {
-  if (TorrentPersistentData::isSeed(h.hash()))
+  if (TorrentPersistentData::instance().isSeed(h.hash()))
     showNotificationBaloon(tr("Download completion"), tr("%1 has finished downloading.", "e.g: xxx.avi has finished downloading.").arg(h.name()));
 }
 
@@ -1426,10 +1419,6 @@ void MainWindow::handleUpdateCheckFinished(bool update_available, QString new_ve
     programUpdateTimer.start();
 }
 #endif
-
-void MainWindow::savePersistentData() {
-  TorrentPersistentData::save();
-}
 
 void MainWindow::on_actionDonate_money_triggered()
 {

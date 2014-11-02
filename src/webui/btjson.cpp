@@ -303,7 +303,7 @@ QByteArray btjson::getPropertiesForTorrent(const QString& hash)
       return QByteArray();
 
     // Save path
-    QString save_path = fsutils::toNativePath(TorrentPersistentData::getSavePath(hash));
+    QString save_path = fsutils::toNativePath(TorrentPersistentData::instance().getSavePath(hash));
     if (save_path.isEmpty())
       save_path = fsutils::toNativePath(h.save_path());
     data[KEY_PROP_SAVE_PATH] = save_path;
