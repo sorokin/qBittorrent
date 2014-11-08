@@ -93,7 +93,6 @@ SET ( SRC_GUI
         ./src/sessionapplication.cpp
         ./src/smtp.cpp
         ./src/statsdialog.cpp
-        ./src/statussortfilterproxymodel.cpp
         ./src/torrentcontentfiltermodel.cpp
         ./src/torrentcontentmodel.cpp
         ./src/torrentcontentmodelfile.cpp
@@ -222,7 +221,6 @@ QT4_WRAP_CPP (
         ./src/stacktrace_win_dlg.h
         ./src/statsdialog.h
         ./src/statusbar.h
-        ./src/statussortfilterproxymodel.h
         ./src/torrentcontentmodel.h
         ./src/torrentpersistentdata.h
         ./src/tracker/qtracker.h
