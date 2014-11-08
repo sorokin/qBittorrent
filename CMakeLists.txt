@@ -36,6 +36,7 @@ SET ( SRC_GUI
         ./src/downloadthread.cpp
         ./src/executionlog.cpp
         ./src/fs_utils.cpp
+        ./src/transferlistsortmodel.cpp
         ./src/geoip/geoipmanager.cpp
         ./src/ico.cpp
         ./src/iconprovider.cpp
