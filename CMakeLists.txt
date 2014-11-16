@@ -98,6 +98,7 @@ SET ( SRC_GUI
         ./src/torrentcontentmodelfile.cpp
         ./src/torrentcontentmodelfolder.cpp
         ./src/torrentcontentmodelitem.cpp
+        ./src/torrentcontenttreeview.cpp
         ./src/torrentcreator/torrentcreatordlg.cpp
         ./src/torrentcreator/torrentcreatorthread.cpp
         ./src/torrentpersistentdata.cpp
@@ -222,6 +223,7 @@ QT4_WRAP_CPP (
         ./src/statsdialog.h
         ./src/statusbar.h
         ./src/torrentcontentmodel.h
+        ./src/torrentcontenttreeview.h
         ./src/torrentpersistentdata.h
         ./src/tracker/qtracker.h
         ./src/trackerlogin.h
